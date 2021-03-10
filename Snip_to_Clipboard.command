@@ -3,6 +3,7 @@ from PIL import ImageGrab, Image
 
 import pytesseract
 import subprocess
+import os
 
 def write_to_clipboard(output):
     process = subprocess.Popen(
@@ -17,3 +18,4 @@ text = pytesseract.image_to_string(Image.open('clip.png'))
 #image = Image.open('clip.png', mode='r')
 print("Copied to clipboard!! \n" + text)
 write_to_clipboard(text)
+os.remove('clip.png')
